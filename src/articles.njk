@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: Articles
+permalink: /articles/
+---
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Articles</h1>
+        <p>Dive reports, trip stories, and club news</p>
+    </div>
+</section>
+
+<section class="articles">
+    <div class="container">
+        <div class="articles-grid">
+            {% for article in collections.articles | reverse %}
+            <article class="article-card">
+                <div class="article-image">
+                    {% if article.data.image %}
+                    <img src="{{ article.data.image }}" alt="{{ article.data.title }}" loading="lazy">
+                    {% else %}
+                    <div class="placeholder-image" style="height:200px;border-radius:0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="article-content">
+                    <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
+                    <p>{{ article.data.excerpt }}</p>
+                    <div class="article-meta">
+                        <span class="author">{{ article.data.author }}</span>
+                        <span class="date">{{ article.date | dateFormat }}</span>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

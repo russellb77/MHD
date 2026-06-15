@@ -2,20 +2,17 @@ backend:
   name: git-gateway
   branch: main
 
-# Use Netlify Identity for authentication
-# Members you invite can log in at yoursite.com/admin/
-
 # Where uploaded images go
-media_folder: "images/uploads"
+media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 
 # Content collections
 collections:
   - name: "articles"
     label: "Articles"
-    folder: "articles"
+    folder: "src/articles"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
@@ -24,19 +21,3 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", pattern: ['.{0,200}', "Must be 200 characters or less"] }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
-
-  - name: "pages"
-    label: "Pages"
-    files:
-      - label: "About Page"
-        name: "about"
-        file: "content/about.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-      - label: "Privacy Policy"
-        name: "privacy"
-        file: "content/privacy.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }

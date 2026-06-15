@@ -1,15 +1,10 @@
 [build]
-  publish = "."
-  functions = "netlify/functions"
-
-# Redirect for single-page app-style navigation (optional)
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
+  command = "npm run build"
+  publish = "_site"
+  functions = "src/netlify/functions"
 
 # Form notifications — sends to hello@midhertsdivers.com
-# Configure in Netlify UI: Site settings > Forms > Form notifications > Email
+# Configure in Netlify UI: Forms > Notifications > Email
 
 # Scheduled function for Instagram token refresh
 [functions."refresh-token"]

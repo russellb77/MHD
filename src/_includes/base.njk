@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Mid Herts Divers</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>{{ title }} - Mid Herts Divers</title>
+    <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>This website uses cookies to ensure you get the best experience on our website. <a href="/privacy/">More info</a></p>
+        <button class="btn-cookie" onclick="document.getElementById('cookieBanner').style.display='none'">Got it!</button>
+    </div>
+
     <!-- Navigation -->
     <header class="header">
         <nav class="nav container">
             <a href="/" class="logo">Mid Herts Divers</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/">Home</a></li>
-                <li><a href="/articles.html">Articles</a></li>
-                <li><a href="/gallery.html">Gallery</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="/gallery/">Gallery</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="/admin/" class="btn-signin">Sign in</a>
-                <a href="/try-dive.html" class="btn-primary">Book a try dive</a>
+                <a href="/try-dive/" class="btn-primary">Book a try dive</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                 <span></span>
@@ -33,25 +39,7 @@
         </nav>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <h1>Gallery</h1>
-            <p>Photos from our dives and adventures</p>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="gallery">
-        <div class="container">
-            <div class="gallery-grid" id="fullGallery">
-                <p class="loading-text">Loading gallery...</p>
-            </div>
-            <div style="text-align:center; margin-top:40px;">
-                <a href="https://instagram.com/midhertsdivers" class="btn-primary btn-large" target="_blank" rel="noopener">Follow us on Instagram</a>
-            </div>
-        </div>
-    </section>
+    {{ content | safe }}
 
     <!-- Footer -->
     <footer class="footer">
@@ -59,7 +47,7 @@
             <div class="footer-section">
                 <h4>Website</h4>
                 <ul>
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/privacy/">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -86,35 +74,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        // Load full Instagram gallery on this page
-        async function loadFullGallery() {
-            const gallery = document.getElementById('fullGallery');
-            if (!gallery) return;
-
-            try {
-                const response = await fetch('/.netlify/functions/instagram');
-                if (!response.ok) throw new Error('Failed');
-                
-                const posts = await response.json();
-                
-                gallery.innerHTML = posts.map(post => `
-                    <div class="gallery-item">
-                        <a href="${post.permalink}" target="_blank" rel="noopener">
-                            <img src="${post.media_url}" alt="${post.caption || 'Instagram post'}" loading="lazy">
-                        </a>
-                        <p class="gallery-caption">${post.caption ? post.caption.substring(0, 150) + (post.caption.length > 150 ? '...' : '') : ''}</p>
-                    </div>
-                `).join('');
-            } catch (error) {
-                gallery.innerHTML = `
-                    <p class="loading-text">Gallery connects to our <a href="https://instagram.com/midhertsdivers" target="_blank" rel="noopener" style="color:var(--primary)">Instagram feed</a>. Check back once it's configured!</p>
-                `;
-            }
-        }
-        
-        document.addEventListener('DOMContentLoaded', loadFullGallery);
-    </script>
+    <script src="/script.js"></script>
 </body>
 </html>

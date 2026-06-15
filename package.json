@@ -1,0 +1,20 @@
+{
+  "name": "midhertsdivers-website",
+  "version": "1.0.0",
+  "description": "Mid Herts Divers - Scuba Diving and Snorkelling Club website",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellb77/MHD.git"
+  },
+  "keywords": [],
+  "author": "Mid Herts Divers",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
