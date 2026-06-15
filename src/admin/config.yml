@@ -21,3 +21,14 @@ collections:
       - { label: "Excerpt", name: "excerpt", widget: "text", pattern: ['.{0,200}', "Must be 200 characters or less"] }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  - name: "gallery"
+    label: "Gallery Images"
+    folder: "src/gallery-images"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "string" }

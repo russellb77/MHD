@@ -12,6 +12,12 @@ module.exports = function(eleventyConfig) {
             .sort((a, b) => b.date - a.date);
     });
 
+    // Create a collection of gallery images sorted by date (newest first)
+    eleventyConfig.addCollection("galleryImages", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("src/gallery-images/*.md")
+            .sort((a, b) => b.date - a.date);
+    });
+
     // Date formatting filter
     eleventyConfig.addFilter("dateFormat", function(date) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
