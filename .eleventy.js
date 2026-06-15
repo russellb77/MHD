@@ -18,6 +18,12 @@ module.exports = function(eleventyConfig) {
             .sort((a, b) => b.date - a.date);
     });
 
+    // Create a collection of events sorted by start date (soonest first)
+    eleventyConfig.addCollection("events", function(collectionApi) {
+        return collectionApi.getFilteredByGlob("src/events/*.md")
+            .sort((a, b) => new Date(a.data.startDate) - new Date(b.data.startDate));
+    });
+
     // Date formatting filter
     eleventyConfig.addFilter("dateFormat", function(date) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };

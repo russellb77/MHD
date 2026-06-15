@@ -582,6 +582,97 @@ img {
     line-height: 1.5;
 }
 
+/* === Events === */
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.event-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+    transition: transform var(--transition);
+}
+
+.event-card:hover {
+    transform: translateX(4px);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-day {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+.event-range {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.event-details h3 {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+.event-details p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.event-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--bg-alt);
+    color: var(--text-light);
+}
+
+.event-tag--available {
+    background: #d4edda;
+    color: #155724;
+}
+
+.event-tag--full {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.event-contact {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 600px) {
+    .event-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
 /* === Forms === */
 .form-section {
     padding: 80px 0;

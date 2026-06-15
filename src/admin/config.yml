@@ -32,3 +32,17 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Caption", name: "caption", widget: "string" }
+
+  - name: "events"
+    label: "Events & Trips"
+    folder: "src/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Start Date", name: "startDate", widget: "datetime" }
+      - { label: "End Date", name: "endDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Contact", name: "contact", widget: "string", required: false }
+      - { label: "Qualification Required", name: "qualification", widget: "string", required: false }
+      - { label: "Spaces Available", name: "spaces", widget: "boolean", default: true }

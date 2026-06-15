@@ -1,0 +1,56 @@
+---
+layout: base.njk
+title: Calendar
+permalink: /calendar/
+---
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Calendar</h1>
+        <p>Upcoming trips, events, and regular sessions</p>
+    </div>
+</section>
+
+<section class="form-section">
+    <div class="container" style="max-width:900px;">
+        <div class="about-content">
+            <h2>Regular Sessions</h2>
+            <p>Our Club Night is every <strong>Wednesday</strong>, with a Zoom call for all members at 7.30pm for a catch up on recent and upcoming diving.</p>
+            <p>This is followed by our <strong>pool training session</strong> and cylinder refilling at Hatfield Swim Centre 9-10pm.</p>
+        </div>
+
+        <div style="margin-top:48px;">
+            <h2 style="font-family:'Montserrat',sans-serif; font-size:1.8rem; color:var(--dark); margin-bottom:32px;">Upcoming Trips & Events</h2>
+            
+            <div class="events-list">
+                {% for event in collections.events %}
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-day">{{ event.data.startDate | dateFormat }}</span>
+                        {% if event.data.endDate and event.data.endDate != event.data.startDate %}
+                        <span class="event-range">to {{ event.data.endDate | dateFormat }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="event-details">
+                        <h3>{{ event.data.title }}</h3>
+                        <p>{{ event.data.description }}</p>
+                        <div class="event-meta">
+                            {% if event.data.qualification %}
+                            <span class="event-tag">{{ event.data.qualification }}</span>
+                            {% endif %}
+                            {% if event.data.spaces %}
+                            <span class="event-tag event-tag--available">Spaces available</span>
+                            {% else %}
+                            <span class="event-tag event-tag--full">Full (taking reserves)</span>
+                            {% endif %}
+                            {% if event.data.contact %}
+                            <span class="event-contact">Contact: {{ event.data.contact }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
