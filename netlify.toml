@@ -1,0 +1,24 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Redirect for single-page app-style navigation (optional)
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+# Form notifications — sends to hello@midhertsdivers.com
+# Configure in Netlify UI: Site settings > Forms > Form notifications > Email
+
+# Scheduled function for Instagram token refresh
+[functions."refresh-token"]
+  schedule = "0 9 * * 1"
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
