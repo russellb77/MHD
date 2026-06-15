@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Mid Herts Divers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="/" class="logo">Mid Herts Divers</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/articles.html">Articles</a></li>
+                <li><a href="/gallery.html">Gallery</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/admin/" class="btn-signin">Sign in</a>
+                <a href="/try-dive.html" class="btn-primary">Book a try dive</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Articles</h1>
+            <p>Dive reports, trip stories, and club news</p>
+        </div>
+    </section>
+
+    <!-- Articles List -->
+    <section class="articles">
+        <div class="container">
+            <div class="articles-grid" id="allArticles">
+                <p class="loading-text">Loading articles...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Website</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="https://www.bsac.com/document/bsac-equality-diversity-and-inclusion-policy/bsac-equality-diversity-and-inclusion-2021.pdf" target="_blank" rel="noopener">Diversity and inclusivity policy</a></li>
+                    <li><a href="https://www.bsac.com/this-is-bsac/bsac-rules-and-policies/safeguarding-policy/" target="_blank" rel="noopener">Safeguarding policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com/midhertsdivers" aria-label="Facebook" class="social-link" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/midhertsdivers" aria-label="Instagram" class="social-link" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 Mid Herts Divers</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load all articles on this page
+        async function loadAllArticles() {
+            const grid = document.getElementById('allArticles');
+            if (!grid) return;
+
+            try {
+                const response = await fetch('/articles/index.json');
+                if (!response.ok) throw new Error('No articles');
+                
+                const articles = await response.json();
+                
+                grid.innerHTML = articles.map(article => `
+                    <article class="article-card">
+                        <div class="article-image">
+                            ${article.image ? `<img src="${article.image}" alt="${article.title}" loading="lazy">` : `
+                            <div class="placeholder-image" style="height:200px;border-radius:0;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                            </div>`}
+                        </div>
+                        <div class="article-content">
+                            <h3>${article.title}</h3>
+                            <p>${article.excerpt}</p>
+                            <div class="article-meta">
+                                <span class="author">${article.author}</span>
+                                <span class="date">${article.date}</span>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+            } catch (error) {
+                grid.innerHTML = '<p class="loading-text">No articles yet. Check back soon!</p>';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadAllArticles);
+    </script>
+</body>
+</html>
