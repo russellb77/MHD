@@ -55,6 +55,40 @@ img {
     padding: 0 24px;
 }
 
+/* === Global Content Spacing === */
+.about-content h2 {
+    margin-top: 2.5em;
+    margin-bottom: 0.75em;
+    font-size: 1.6rem;
+    color: var(--dark);
+}
+
+.about-content h2:first-child {
+    margin-top: 0;
+}
+
+.about-content h3 {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+.about-content p {
+    margin-bottom: 1.2em;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.about-content a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.about-content a:hover {
+    text-decoration: underline;
+}
+
 .hidden {
     display: none;
 }
@@ -981,5 +1015,9 @@ img {
 
     .form-container {
         padding: 24px;
+    }
+
+    .join-options {
+        grid-template-columns: 1fr;
     }
 }
