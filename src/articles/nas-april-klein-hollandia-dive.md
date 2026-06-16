@@ -1,10 +1,15 @@
 ---
-title: "NAS April Klein Hollandia Dive"
+title: NAS April Klein Hollandia Dive
 date: 2026-04-26
-author: "Howard Smith"
-image: ""
-excerpt: "24th April saw Richard and I heading down to Eastbourne at an uncivilised time to dive the Klein Hollandia and Normans Bay wreck, courtesy of the Nautical Archaeology Society."
-tags: ["trip", "wreck-diving", "archaeology"]
+author: Howard Smith
+image: /images/uploads/klein.jpg
+excerpt: 24th April saw Richard and I heading down to Eastbourne at an
+  uncivilised time to dive the Klein Hollandia and Normans Bay wreck, courtesy
+  of the Nautical Archaeology Society.
+tags:
+  - trip
+  - wreck-diving
+  - archaeology
 ---
 
 24th April saw Richard and I heading down to Eastbourne at an uncivilised time to dive the Klein Hollandia and Normans Bay wreck (planned), courtesy of the Nautical Archaeology society (NAS).
