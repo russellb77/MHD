@@ -1,10 +1,15 @@
 ---
-title: "Mid April Swanage Weekend"
+title: Mid April Swanage Weekend
 date: 2026-04-13
-author: "Howard Smith"
-image: ""
-excerpt: "April saw the first MHD UK offshore diving trip, to Swanage. Unfortunately we managed to thread the needle and find a 2 day spell of strong winds between spells of settled conditions."
-tags: ["trip", "swanage", "uk-diving"]
+author: Howard Smith
+image: /images/uploads/swanage.jpeg
+excerpt: April saw the first MHD UK offshore diving trip, to Swanage.
+  Unfortunately we managed to thread the needle and find a 2 day spell of strong
+  winds between spells of settled conditions.
+tags:
+  - trip
+  - swanage
+  - uk-diving
 ---
 
 April saw the first MHD UK offshore diving trip, to Swanage in this case. Unfortunately we managed to thread the needle and find a 2 day spell of strong winds between spells of settled conditions, which blew out the Saturday and required a hasty rethink on Sunday. Illness also took its toll of one of our number so in the end it was just Marty, Howard and Richard who went.
