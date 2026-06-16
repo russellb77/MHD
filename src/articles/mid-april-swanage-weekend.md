@@ -2,7 +2,7 @@
 title: Mid April Swanage Weekend
 date: 2026-04-13
 author: Howard Smith
-image: /images/uploads/swanage.jpeg
+image: ""
 excerpt: April saw the first MHD UK offshore diving trip, to Swanage.
   Unfortunately we managed to thread the needle and find a 2 day spell of strong
   winds between spells of settled conditions.
