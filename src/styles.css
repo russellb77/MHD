@@ -796,6 +796,43 @@ img {
     resize: vertical;
 }
 
+/* === Article Body === */
+.article-body p {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+}
+
+.article-body h2, .article-body h3 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+}
+
+.article-body img {
+    width: 100%;
+    border-radius: var(--radius);
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+}
+
+.article-body a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.article-body a:hover {
+    text-decoration: underline;
+}
+
+.article-body ul, .article-body ol {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.article-body li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
 /* === Footer === */
 .footer {
     background: var(--bg-dark);
